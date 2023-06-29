@@ -8,27 +8,27 @@ on:
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: '3.10'
-      - name: Install requirements 📦
-        run: |
-          python3 -m pip install --upgrade pip
-          pip3 install -r requirements.txt
-      - name: generate markdown ⚙
-        run: python3 csv_to_markdown.py
-      - name: commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          git diff-index --quiet HEAD || (git commit -a -m "updated markdown" --allow-empty)
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+    - name: Install requirements 📦
+      run: |
+        python3 -m pip install --upgrade pip
+        pip3 install -r requirements.txt
+    - name: generate markdown ⚙
+      run: python3 csv_to_markdown.py
+    - name: commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add -A
+        git diff-index --quiet HEAD || (git commit -a -m "updated markdown" --allow-empty)
 
-      - name: push changes
-        uses: ad-m/github-push-action@v0.6.0
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: PT_Markdown_Restructure_Enhancement
+    - name: push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: PT_Markdown_Restructure_Enhancement
