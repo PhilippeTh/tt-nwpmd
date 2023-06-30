@@ -13,5 +13,5 @@
 
 | Name | Description | Child |
 |-----|-----|-----|
-| [Deterministic](deterministic/) | Data sets providing one single scenario | domain |
-| [Probabilistic](probabilistic/) | Data sets providing probability distribution and uncertainty | domain |
+| [Deterministic](deterministic/) | outputs from a prediction system which provides one single scenario | domain |
+| [Probabilistic](probabilistic/) | outputs from a prediction system which provides multiple scenarios, including probability distribution and uncertainty information | domain |
