@@ -11,7 +11,7 @@ Please take note that, when merging into [tt-nwpmd](https://github.com/wmo-im/tt
 - [virtualenv](https://virtualenv.pypa.io/)
 
 ## Dependencies
-Dependencies are listed in [requirements.txt](tree/script/requirements.txt). Dependencies are automatically installed during installation.
+Dependencies are listed in [requirements.txt](requirements.txt). Dependencies are automatically installed during installation.
 
 ## Installing tt-nwpmd
 ```bash
@@ -36,6 +36,6 @@ python tree/script/csv_to_markdown.py
 
 For the workflow to work properly, you will to follow these steps:
 
-* Inside [main.yml](.github/workflows/main.yml), on the very bottom, you will need to modify the branch name for your own;
+* Inside [main.yml](../../.github/workflows/main.yml), on the very bottom, you will need to modify the branch name for your own;
 * For the workflow to be able to change the main branch, it needs to have workflow write access. This can be done by going on your github fork -> Settings -> Actions -> General -> In Workflow permissions, select Read and write permissions;
 * Finally, you mustn't modify the branch on which the workflow is directly and instead you'll need to merge something into the branch. Modifying the branch in which you want this workflow to work directly would bypass the generation of the markdown tree. The correct way would be to fork the main branch when you wish to make a change, make the changes, push those changes and then make a pull request to the main branch. Once the pull request is approved and merged, the workflow will kick in and regenerate the markdown tree.
